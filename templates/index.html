@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title> ML</title>
+    <link rel="stylesheet" href="../../ml-proj/templates/index.css">
+   
+    </head>
+ 
+<body  style=" background-color:#daf5e1"> 
+  <h1 style="text-align: center; color:#052423;"> Machine Learning Project: Prediction Of Crop Production</h1> 
+                            
+  <div class="Variable">
+    <form action="{{ url_for('result')}}"method="post" style = "margin:20px auto; width:250px; text-align:center;">
+      <div class="form-group form-inline" style="width:300px;">
+      <label style="width: 100px; text-align:left; display:inline-block; color:#083131;" for = "State Name">State Name: </label>
+      <select class = "form-control" id = "State_Name" name = "State_Name" >
+      <option value = '1'>Andhra Pradesh</option>
+      <option value = '2'>Arunachal Pradesh</option>
+      <option value = '3'> Assam</option>
+      <option value = '4'>Bihar</option>
+      <option value = '5'>Chandigarh</option>
+      <option value = '6'>Chattisgrh</option>
+      <option value = '7'>A/N Island</option>
+      <option value = '8'>Nagar Haveli</option>
+      <option value = '9'>Goa</option>
+      <option value = '10'>Gujrat</option>
+      <option value = '11'> Haryana</option>
+      <option value = '12'>Jammu and Kashmir</option>
+      <option value = '13'> Jharkand</option>
+      <option value = '14'>Karnataka</option>
+      <option value = '15'>Kerala</option>
+      <option value = '16'>Madhya Pradesh</option>
+      <option value = '17'>Maharahtra</option>
+      <option value = '18'>Manipur</option>
+      <option value = '19'>Meghayala</option>
+      <option value = '20'>Mizoram</option>
+      <option value = '21'>Nagaland</option>
+      <option value = '22'>Odisha</option>
+      <option value = '23'>Punjab</option>
+      <option value = '24'>Rajasthan</option>
+      <option value = '25'>Tamilnadu</option>
+      <option value = '26'>Telengana</option>
+      <option value = '27'>Utter Pradesh</option>
+      <option value = '28'>tarakhand</option>
+      <option value = '29' >West Bengal</option>
+    
+      </select>
+      </div>
+      <div class="form-group form-inline" style="width:300px;">
+      <label style="width: 100px; text-align:left; display:inline-block; color:#052423;"  for = "District Name"> District Name:  </label>
+      <select class = "form-control" id = "District_Name" name = "District_Name" >
+      <option value = '10'>NICOBARS</option>
+      <option value = '20'>ANDAMAN</option>
+      <option value = '30'>ANANTAPUR</option>
+      <option value = '40'>EAST GODAVARI</option>
+      <option value = '50'>GUNTUR</option>
+      <option value = '60'>KADAPA</option>
+      <option value = '70'>VISAKHAPATANAM</option>
+      <option value = '80'>KURNOOL</option>
+      <option value = '90'>SRIKAKULAM</option>
+      <option value = '100'>LOWER SUBANSIRI</option>
+      <option value = '110'>PAPUM PARE</option>
+      <option value = '120'>TAWANG</option>
+      <option value = '130'>TIRAP</option>
+      <option value = '140'>UPPER SIANG</option>
+      <option value = '150'>BAKSA</option>
+      <option value = '160'>BARPETA</option>
+      <option value = '170'>BONGAIGAON</option>
+      <option value = '180'>CACHAR</option>
+      <option value = '190'>CHIRANG</option>
+      <option value = '200'>DARRANG</option>
+      <option value = '210'>DHEMAJI</option>
+      <option value = '220'>ARARIA</option>
+      <option value = '230'>ARWAL</option>
+      <option value = '240'>BUXAR</option>
+      <option value = '250'>DARBHANGA</option>
+      <option value = '260'>CHANDIGARH</option>
+      <option value = '270'>BALOD</option>
+      <option value = '280'>BALODA BAZAR</option>
+      <option value = '290'>BALRAMPUR</option>
+      <option value = '300'>RAIPUR</option>
+      <option value = '310'>AHMADABAD</option>
+      <option value = '320'>AMRELI</option>
+      <option value = '330'>BANAS KANTHA</option>
+      <option value = '340'>ANAND</option>
+      <option value = '350'>RAJKOT</option>
+      <option value = '360'>VALSAD</option>
+      <option value = '370'>MAHENDRAGARH</option>
+      <option value = '380'>UNA</option>
+      <option value = '390'>DODA</option>
+      <option value = '400'>JAMMU</option>
+      <option value = '410'>SRINAGAR</option>
+      <option value = '420'>DUMKA</option>
+      <option value = '430'>EAST SINGHBUM</option>
+      <option value = '440'>BAGALKOT</option>
+      <option value = '450'>PALAKKAD</option>
+      <option value = '460'>GWALIOR</option>
+      <option value = '470'>DHULE</option>
+      <option value = '480'>JALGAON</option>
+      <option value = '490'>NAGPUR</option>
+      <option value = '500'>RATNAGIRI</option>
+      <option value = '510'>SANGLI</option>
+      <option value = '530'>SOUTH GARO HILLS</option>
+      <option value = '540'>DIMAPUR</option>
+      <option value = '560'>ANUGUL</option>
+      <option value = '570'>GWALIOR</option>
+      <option value = '580'>JALANDHAR</option>
+      <option value = '590'>ALWAR</option>
+      <option value = '600'>NAGAPATTINAM</option>
+      <option value = '610'>BARDHAMAN</option>
+      </select>
+      </div>
+      <div class="form-group form-inline" style="width:300px;">
+      <label style="width: 100px; text-align:left; display:inline-block; color:#052423;" for = "Crop Year">Crop Year: </label>
+      <select class = "form-control" id = "Crop_Year" name = "Crop_Year" >
+        <option value = '1997'>1997</option>
+        <option value = '1998'>1998</option>
+        <option value = '1999'>1999</option>
+        <option value = '2000'>2000</option>
+        <option value = '2001'>2001</option>
+        <option value = '200'>2002</option>
+        <option value = '2003'>2003</option>
+        <option value = '2004'<'>2004</option>
+        <option value = '2005'>2005</option>
+        <option value = '2006'>2006</option>
+        <option value = '2007'>2007</option>
+        <option value = '2008'>2008</option>
+        <option value = '2009'>2009</option>
+        <option value = '2010'>2010</option>
+        <option value = '2011'>2011</option>
+        <option value = '2012'>2012</option>
+        <option value = '2013'>2013</option>
+        <option value = '2014'>2014</option>
+      </select>
+      </div>
+      <div class="form-group form-inline" style="width:300px;"> 
+      <label style="width: 100px; text-align:left; display:inline-block; color:#052423;"for = "Season">Season: </label>
+      <select class = "form-control" id = "Season" name = "Season">
+      <option value = "0">Autumn</option>
+      <option value = "1">Kharif</option>
+      <option value = "2">Rabi</option>
+      <option value = "3">Summer</option>
+      <option value = "4">Whole Year</option>
+      <option value = "5">Winter</option>
+      </select>
+      </div>
+      <div class="form-group form-inline" style="width:300px;">
+      <label style="width: 100px; text-align:left; display:inline-block; color:#052423;" for = "Crop">Crop: </label>
+      <select class = "form-control" id = "Crop" name = "Crop" >
+      <option value = '3'>Apple</option>
+      <option value = "6">Arecanut</option>
+      <option value = "9">Tur</option>
+      <option value = "12">Ash Gourd</option>
+      <option value = "15">Bajra</option>
+      <option value = "18">Banana</option>
+      <option value = "21">Barley</option>
+      <option value = "24">Bean</option>
+      <option value = "27">Mutter</option>
+      <option value = "30">Beet Root</option>
+      <option value = "33">Ber</option>
+      <option value = "36">Bhindi</option>
+      <option value = "39">Bitter Gourd</option>
+      <option value = "43">Black Paper</option>
+      <option value = "46">BlackGram</option>
+      <option value = "49">Bottle Gourd</option>
+      <option value = "52">Brinjal</option>
+      <option value = "55">Cabbage</option>
+      <option value = "58">Cardamom</option>
+      <option value = "61">Carrot</option>
+      <option value = "62">Cashewnut</option>
+      <option value = "63">Caster seed</option>
+      <option value = "64">Cauliflower</option>
+      <option value = "65">Citrus Friuit</option>
+      <option value = "68">Coconut</option>
+      <option value = "71">Coffee</option>
+      <option value = "74">Coriander</option>
+      <option value = "77">Cotton</option>
+      <option value = "80">Cucumber</option>
+      <option value = "85">Drum Stick</option>
+      <option value = "90">Dry Chillies</option>
+      <option value = "95">Dry Ginger</option>
+      <option value = "100">Garlic</option>
+      <option value = "105">Ginger</option>
+      <option value = "110">Mango</option>
+      <option value = "113">Grapes</option>
+      <option value = "117">Groundnut</option>
+      <option value = "120">Lemon</option>
+      <option value = "123">Jute</option>
+      </select>
+      </div>
+      <div class="form-group form-inline" style="width:300px;">
+      <label style="width: 100px; text-align:left; display:inline-block; color:#052423;" for = "Area">Area in ha: </label> 
+      <input type="text" name="Area" placeholder="Area" required="required"/> 
+      </div>
+      <div>
+      </br>
+      <button type="submit" class="btn btn-primary">Predict The Production</button>
+      </div>
+      </br>
+      
+      {{ prediction_text }}
+      {{ result_text }}
+      
+    </form>
+    <br>
+  </div>
+</div>
+</body>
+</html>
