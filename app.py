@@ -26,9 +26,12 @@ def result():
     try:
         if request.method == 'POST':
             to_predict_list = request.form.to_dict()
-            to_predict_list = list(to_predict_list.values()) 
-            to_predict_list = list(map(int,to_predict_list))
-            result = ValuePredictor(to_predict_list)            
+            print('123',to_predict_list)
+            to_predict_list1 = list(to_predict_list.values()) 
+            print('1234')
+            to_predict_list2 = list(map(int,to_predict_list1))
+            result = ValuePredictor(to_predict_list2)  
+            print('12345')         
             return render_template("index.html", prediction_text=' Production : kg {}/ha '.format(result))
 
     except:
